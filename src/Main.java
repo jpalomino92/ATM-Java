@@ -3,14 +3,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        CuentaBancaria cuentaDeJuan = new CuentaBancaria();
 
-        cuentaDeJuan.owner = "Juan Palomino";
-        cuentaDeJuan.accountType = "savings";
-        cuentaDeJuan.balance = 25_000;
-
-        double balance = cuentaDeJuan.getBalance();
-        System.out.println("el saldo es " + balance);
 
 
 
