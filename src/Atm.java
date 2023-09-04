@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+
 /*
 Class that emulates the functionalities of an ATM.
 
@@ -22,4 +25,37 @@ exit() -> This will thank the user for using their services.
 
 */
 public class Atm {
+    CuentaBancaria currentBankAccount;
+
+    Atm(String identifier, String password){
+        double RandomQuantity = ThreadLocalRandom.current().nextDouble(0,50000);
+        currentBankAccount = new CuentaBancaria("Juan",RandomQuantity);
+
+    }
+
+    void showBalance(){
+        System.out.println("Your balance is : " + currentBankAccount.getBalance());
+    }
+    void depositCash(){
+        System.out.println("How much money do you want to deposit?");
+        Scanner scanner = new Scanner(System.in);
+        double quantity = scanner.nextDouble();
+        currentBankAccount.depositCash(quantity);
+    }
+
+    void withdrawMoney(){
+        System.out.println("How much money do you want to withdraw?");
+        Scanner scanner = new Scanner(System.in);
+        double quantity = scanner.nextDouble();
+        currentBankAccount.withdrawMoney(quantity);
+    }
+
+    void checkLastMovements(){
+
+    }
+    void exit(){
+        System.out.println("Thank you for using our services");
+    }
+
+
 }

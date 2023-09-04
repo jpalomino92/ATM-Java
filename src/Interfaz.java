@@ -17,6 +17,15 @@ import java.util.Scanner;
 
 public class Interfaz {
     public static void main(String[] args) {
+
+        System.out.println("Please provide your DNI");
+        Scanner scanner = new Scanner(System.in);
+        String identifier = scanner.nextLine();
+        System.out.println("Please introduce your password");
+        String password = scanner.nextLine();
+        Atm atm = new Atm(identifier,password);
+
+
         int option;
 
         do {
@@ -28,24 +37,24 @@ public class Interfaz {
             System.out.println("Once you have entered the option, press the Enter key.");
             System.out.println("To exit Type any other number.");
 
-            Scanner scanner = new Scanner(System.in);
+
             option = scanner.nextInt();
 
             switch (option){
                 case 1:
-                    System.out.println("Checking balance");
+                    atm.showBalance();
                     break;
                 case 2:
-                    System.out.println("Depositing cash");
+                    atm.depositCash();
                     break;
                 case 3:
-                    System.out.println("withdrawing money");
+                    atm.withdrawMoney();
                     break;
                 case 4:
-                    System.out.println("last transactions");
+                    atm.checkLastMovements();
                     break;
                 default:
-                    System.out.println("Exiting");
+                    atm.exit();
             }
 
         }while( option == 1 | option == 2 | option == 3 | option == 4);
